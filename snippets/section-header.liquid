@@ -1,0 +1,34 @@
+{% comment %}
+  Snippet: section-header
+  Compatible with: Shopify Dawn Theme (v14+)
+  Author: John Venedick Natividad
+
+  Usage:
+    {%- render 'section-header',
+      heading: section.settings.heading,
+      heading_size: section.settings.heading_size,
+      subheading: section.settings.subheading,
+      alignment: section.settings.header_alignment
+    -%}
+
+  Params:
+    heading       {String}  — Main heading text
+    heading_size  {String}  — Dawn heading class: 'h0', 'h1', 'h2'
+    subheading    {String}  — Optional subheading below heading
+    alignment     {String}  — 'left' | 'center' | 'right' (default: 'center')
+{% endcomment %}
+
+{%- if heading != blank or subheading != blank -%}
+  <div class="section-header center {{ alignment | default: 'center' }}">
+    {%- if heading != blank -%}
+      <h2 class="section-header__title {{ heading_size | default: 'h2' }}">
+        {{- heading | escape -}}
+      </h2>
+    {%- endif -%}
+    {%- if subheading != blank -%}
+      <p class="section-header__description">
+        {{- subheading | escape -}}
+      </p>
+    {%- endif -%}
+  </div>
+{%- endif -%}
