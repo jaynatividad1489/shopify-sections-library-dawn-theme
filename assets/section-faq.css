@@ -1,0 +1,132 @@
+/* ==========================================================================
+   Section: FAQ Accordion
+   Compatible with: Shopify Dawn Theme (v14+)
+   Author: John Venedick Natividad
+   Uses Dawn CSS custom properties throughout
+   ========================================================================== */
+
+.faq__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.faq__heading {
+  margin-bottom: 1rem;
+}
+
+.faq__subheading {
+  color: rgba(var(--color-foreground), 0.75);
+  margin: 0;
+}
+
+/* List */
+.faq__list {
+  max-width: 78rem;
+  margin: 0 auto;
+}
+
+/* Item — uses native <details> */
+.faq__item {
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+}
+
+.faq__item:first-child {
+  border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
+}
+
+/* Question — uses native <summary> */
+.faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem 0;
+  cursor: pointer;
+  list-style: none;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: rgb(var(--color-foreground));
+  font-family: var(--font-body-family);
+  transition: color 0.2s ease;
+}
+
+/* Hide default browser arrow on <summary> */
+.faq__question::-webkit-details-marker { display: none; }
+.faq__question::marker { display: none; }
+
+.faq__question:hover {
+  color: rgba(var(--color-foreground), 0.7);
+}
+
+.faq__question:focus-visible {
+  outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
+  outline-offset: 0.3rem;
+  border-radius: 0.3rem;
+}
+
+.faq__question-text {
+  flex: 1;
+}
+
+/* Caret icon — uses Dawn's icon-caret snippet */
+.faq__icon {
+  flex-shrink: 0;
+  width: 1.6rem;
+  height: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(var(--color-foreground), 0.5);
+  transition: transform 0.3s ease;
+}
+
+.faq__icon .icon-caret {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.faq__item[open] .faq__icon {
+  transform: rotate(180deg);
+}
+
+/* Answer */
+.faq__answer {
+  overflow: hidden;
+}
+
+.faq__answer-inner {
+  padding: 0.4rem 0 2.4rem;
+  color: rgba(var(--color-foreground), 0.75);
+  font-size: 1.5rem;
+  line-height: 1.7;
+}
+
+/* Dawn's .rte class handles rich text styling (links, lists, etc.) */
+.faq__answer-inner.rte p:first-child { margin-top: 0; }
+.faq__answer-inner.rte p:last-child  { margin-bottom: 0; }
+
+/* CTA prompt */
+.faq__cta {
+  margin-top: 4rem;
+}
+
+.faq__cta-text {
+  font-size: 1.5rem;
+  color: rgba(var(--color-foreground), 0.75);
+}
+
+.faq__cta-text .link {
+  margin-left: 0.4rem;
+  color: rgb(var(--color-foreground));
+  font-weight: 600;
+  text-underline-offset: 0.3rem;
+}
+
+/* ==========================================================================
+   Reduced Motion
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .faq__icon {
+    transition: none;
+  }
+}
