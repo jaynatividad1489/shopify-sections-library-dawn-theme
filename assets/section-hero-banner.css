@@ -1,0 +1,140 @@
+/* ==========================================================================
+   Section: Hero Banner
+   Compatible with: Shopify Dawn Theme (v14+)
+   Author: John Venedick Natividad
+   Uses Dawn CSS custom properties:
+   --color-base-text, --color-base-background-1,
+   --font-heading-family, --font-body-family,
+   --page-width, --buttons-border-radius
+   ========================================================================== */
+
+.hero-banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Media / Image */
+.hero-banner__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-banner__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Overlay */
+.hero-banner__overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgb(var(--color-base-text));
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Content wrapper — uses Dawn's page-width */
+.hero-banner__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.hero-banner__content--left   { text-align: left; }
+.hero-banner__content--center { text-align: center; }
+.hero-banner__content--right  { text-align: right; }
+
+.hero-banner__box {
+  max-width: 72rem;
+}
+
+.hero-banner__content--center .hero-banner__box {
+  margin-inline: auto;
+}
+
+.hero-banner__content--right .hero-banner__box {
+  margin-left: auto;
+}
+
+/* Subheading — uses Dawn's caption-with-letter-spacing */
+.hero-banner__subheading {
+  margin-bottom: 1.2rem;
+  color: rgb(var(--color-foreground));
+  opacity: 0.8;
+}
+
+/* Heading */
+.hero-banner__heading {
+  font-family: var(--font-heading-family);
+  font-weight: var(--font-heading-weight);
+  font-style: var(--font-heading-style);
+  color: rgb(var(--color-foreground));
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  word-break: break-word;
+}
+
+/* Text body */
+.hero-banner__text {
+  color: rgb(var(--color-foreground));
+  opacity: 0.9;
+  margin-bottom: 2rem;
+  max-width: 60ch;
+}
+
+.hero-banner__content--center .hero-banner__text {
+  margin-inline: auto;
+}
+
+.hero-banner__content--right .hero-banner__text {
+  margin-left: auto;
+}
+
+/* Buttons — wraps Dawn's .button classes */
+.hero-banner__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.hero-banner__content--center .hero-banner__buttons { justify-content: center; }
+.hero-banner__content--left   .hero-banner__buttons { justify-content: flex-start; }
+.hero-banner__content--right  .hero-banner__buttons { justify-content: flex-end; }
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media screen and (max-width: 749px) {
+  .hero-banner__content {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .hero-banner__buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-banner__content--center .hero-banner__buttons {
+    align-items: center;
+  }
+}
+
+/* ==========================================================================
+   Reduced Motion
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .hero-banner__image {
+    transition: none;
+  }
+}
