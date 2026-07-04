@@ -1,0 +1,46 @@
+/* ==========================================================================
+   Section: Featured Products
+   Compatible with: Shopify Dawn Theme (v14+)
+   Author: John Venedick Natividad
+   NOTE: Most product card styles come from Dawn's component-card.css,
+   component-price.css, and component-badge.css which are loaded above.
+   This file only adds section-level layout overrides.
+   ========================================================================== */
+
+.featured-products__header {
+  margin-bottom: 4rem;
+}
+
+.featured-products__heading {
+  margin-bottom: 1rem;
+}
+
+.featured-products__subheading {
+  color: rgba(var(--color-foreground), 0.75);
+  margin: 0;
+}
+
+/* Grid — extends Dawn's .grid and .product-grid */
+.featured-products__grid.grid {
+  margin-bottom: 0;
+}
+
+/* View All button area */
+.featured-products__view-all {
+  margin-top: 4rem;
+}
+
+/* Empty state */
+.featured-products__empty {
+  padding: 4rem 2rem;
+  color: rgba(var(--color-foreground), 0.6);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media screen and (max-width: 749px) {
+  .featured-products__header {
+    margin-bottom: 2.4rem;
+  }
+}
